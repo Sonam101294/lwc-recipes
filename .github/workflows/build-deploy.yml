@@ -5,7 +5,7 @@ name: build-deploy
 on:
     push:
         branches:
-            - develop
+            - main
         paths-ignore:
             - 'sfdx-project.json'
             - 'README.md'
