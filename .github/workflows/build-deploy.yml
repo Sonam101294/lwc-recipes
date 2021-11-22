@@ -45,10 +45,7 @@ jobs:
             - name: 'Authenticate Dev Hub'
               run: sfdx auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d
 
-            # Run Apex tests in scratch org
-            - name: 'Run Apex tests'
-              run: sfdx force:apex:test:run -c -r human -d ./tests/apex -w 20 -u devhub
-
+            
             - name: 'Install app and create delta'
               run: |
                echo y | sfdx plugins:install sfdx-git-delta
