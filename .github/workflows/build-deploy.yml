@@ -52,7 +52,8 @@ jobs:
                echo y | sfdx plugins:install sfdx-git-delta
                git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
                git fetch --all
-               sfdx sgd:source:delta --to "HEAD" --from "HEAD^" --output .
+               git --no-pager diff --name-status US34  origin/develop
+               sfdx sgd:source:delta --to US34 --from origin/develop --output "."
                cat package/package.xml
               
               
