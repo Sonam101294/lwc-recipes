@@ -54,7 +54,7 @@ jobs:
                git fetch --all
                git checkout -b pr
                git --no-pager diff --name-status pr origin/develop
-               sfdx sgd:source:delta --to pr --from origin/d --output "."
+               sfdx sgd:source:delta --to pr --from origin/develop --output "."
                cat package/package.xml
               
               
