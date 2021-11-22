@@ -1,7 +1,7 @@
 public with sharing class AccountController {
     @AuraEnabled(cacheable=true)
     public static List<Account> getAccountList() {
-        //test new data
+        //test new data1
         return [SELECT Id, Name FROM Account WITH SECURITY_ENFORCED LIMIT 10];
     }
 
