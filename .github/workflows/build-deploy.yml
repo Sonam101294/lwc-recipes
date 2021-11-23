@@ -5,7 +5,8 @@ name: build-deploy
 on:
     push:
         branches:
-            - main
+
+            - develop
         paths-ignore:
             - 'sfdx-project.json'
             - 'README.md'
@@ -51,9 +52,9 @@ jobs:
                echo y | sfdx plugins:install sfdx-git-delta
                git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
                git fetch --all
-               git checkout -b pr
-               git --no-pager diff --name-status pr origin/develop
-               sfdx sgd:source:delta --to pr --from origin/develop --output "."
+               
+               git --no-pager diff --name-status develop origin/main
+               sfdx sgd:source:delta --to develop --from origin/main --output "."
                echo "--- package.xml generated with added and modified metadata ---"
                cat package/package.xml
                echo
@@ -65,5 +66,3 @@ jobs:
               run: sfdx force:source:convert --manifest=package/package.xml --outputdir=convert
             - name: 'Run Test on Metadata'
               run: sfdx force:mdapi:deploy --deploydir=convert --testlevel=RunLocalTests -u devhub -w30
-
-    
