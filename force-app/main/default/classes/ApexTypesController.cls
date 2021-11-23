@@ -1,7 +1,7 @@
 public with sharing class ApexTypesController {
     @AuraEnabled(cacheable=true)
     public static String checkApexTypes(CustomWrapper wrapper) {
-        //my changes to check git process again one more time
+        //my changes to check git process
         // Using System.debug() isn't good practice for production applications.
         // It's used here to showcase how the received data looks like in Apex.
         System.debug(wrapper);
