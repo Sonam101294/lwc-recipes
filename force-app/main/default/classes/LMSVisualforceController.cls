@@ -3,6 +3,7 @@ public with sharing class LMSVisualforceController {
     public Contact contactRecord { get; set; }
 
     public LMSVisualforceController() {
+        //checking data
         this.contactRecord = new Contact();
     }
 
